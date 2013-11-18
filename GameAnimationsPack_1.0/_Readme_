@@ -1,0 +1,47 @@
+Message Communication Channel = 'raceTrack'
+
+
+--Global State Data Keys--
+
+All Races Total Results = ['results_total']
+Current Race Results = ['results_current']
+
+Saved Asset IDs for Message Communication
+Controller Entity ID = ['controller']
+Starting Line Entity ID = ['startline']
+Finish Line Entity ID = ['finishline']
+Scoreboard Entity ID = ['scoreboard']
+
+
+--Script Flow--
+
+1. User clicks on vehicle
+2. Player is positioned and rotated to vehicle start
+3. Movement Module is stacked onto player to prevent them from moving
+4. Wait time 5-second countdown begins (Other players can still join race)
+5. Wait time ends
+6. Any unused spawn vehicles are destroyed (Other players can no longer join)
+7. Start time 3-second countdown begins
+8. Start time countdown ends
+9. A new Movement Module is stacked onto player allowing them to move(race)
+(...Racing...)
+10. Player crosses Finish Line
+11. Movement Module is cleared from player
+(Repeat steps 10 - 11 till all players cross Finish Line)
+(Race is either completed or times out and race is reset)
+12. Remove any remaining Movement Modules from players
+13. Reset Start Line so vehicles respawn
+14. Save race results
+
+
+--Things to Do--
+
+- Make sure existing player scores are updated with better score based on matching USER ID
+
+- Purge total scores that are too low. Need to limit the number of scores to show. Maybe 10 - 20 players?
+
+- Added additional table to scoreboard for current race results. Although, display of results is currently not working, yet.
+
+- Any possible way for people who lost or have timed out an easier way back to Start Line?
+
+- Script each asset so that when user places them on ground, errors are not thrown.
